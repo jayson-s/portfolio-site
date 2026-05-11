@@ -85,6 +85,7 @@ Required Vercel environment variable:
 - `ANTHROPIC_API_KEY`: Anthropic API key used by the serverless proxy.
 
 Optional Vercel environment variables:
+- `ANTHROPIC_MODEL`: Anthropic model ID. Defaults to `claude-sonnet-4-5-20250929`.
 - `ALLOWED_ORIGINS`: comma-separated list of origins that may call the API cross-origin, such as `https://www.jaysonsandhu.com,https://jaysonsandhu.com`.
 - `SITE_ORIGIN`: single-origin alternative to `ALLOWED_ORIGINS`.
 

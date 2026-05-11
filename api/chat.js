@@ -30,6 +30,7 @@ const MAX_MESSAGE_CHARS = 1000;
 const MAX_TOTAL_CHARS = 6000;
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT_MAX = 12;
+const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5-20250929';
 const rateLimitStore = new Map();
 
 function getAllowedOrigins() {
@@ -151,13 +152,13 @@ export default async function handler(req, res) {
         'x-api-key': apiKey,
         'anthropic-version': '2023-06-01',
       },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+      body: JSON.stringify({
+        model: ANTHROPIC_MODEL,
         max_tokens: 450,
-          system: SYSTEM_PROMPT,
+        system: SYSTEM_PROMPT,
         messages: validation.messages,
-        }),
-      });
+      }),
+    });
 
     const data = await anthropicRes.json();
 

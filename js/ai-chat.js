@@ -85,7 +85,26 @@ export function initAIChat() {
         body: JSON.stringify({ messages: history }),
       });
 
-      const data = await response.json();
+      const raw = await response.text();
+      let data = {};
+
+      try {
+        data = raw ? JSON.parse(raw) : {};
+      } catch (parseErr) {
+        console.error('AI Chat API returned non-JSON response:', {
+          status: response.status,
+          body: raw.slice(0, 300),
+          parseErr,
+        });
+      }
+
+      if (!response.ok) {
+        console.error('AI Chat API error:', {
+          status: response.status,
+          error: data.error || raw.slice(0, 300) || 'Unknown error',
+        });
+      }
+
       const reply = response.ok && data.content?.[0]?.text
         ? data.content[0].text
         : "I'm having trouble connecting right now. Please try again or contact Jayson directly at jayson@jaysonsandhu.com.";
