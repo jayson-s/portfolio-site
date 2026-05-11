@@ -1,9 +1,7 @@
 /**
- * ai-chat.js — AI-powered portfolio assistant
- * Calls /api/chat (Vercel serverless proxy) — API key and system prompt are server-side only.
+ * ai-chat.js — Local portfolio assistant
+ * Runs fully in the browser with no external API calls or paid AI provider.
  */
-
-// System prompt lives server-side in /api/chat.js — not exposed to the browser.
 
 const QUICK_PROMPTS = [
   "What's Jayson's current role?",
@@ -12,6 +10,51 @@ const QUICK_PROMPTS = [
   "Is he open to new roles?",
   "What technologies does he know?",
 ];
+
+const ANSWERS = [
+  {
+    keywords: ['current', 'role', 'job', 'meltwater', 'work now', 'doing now'],
+    answer: "Jayson is a **Product Support Expert at Meltwater** in Toronto. He supports complex B2B SaaS issues across analytics, API integrations, data discrepancies, escalations, and incident resolution while partnering with Product and Engineering."
+  },
+  {
+    keywords: ['experience', 'background', 'career', 'apple', 'ibm', 'shoppers', 'employment'],
+    answer: "Jayson has **5+ years of technical and customer-facing experience**. His background includes Product Support at Meltwater, Senior Technical Expert work at Apple, software development through IBM's Developer Program, and operations leadership at Shoppers Drug Mart."
+  },
+  {
+    keywords: ['cert', 'certificate', 'certification', 'aws', 'kubernetes', 'ckad', 'saa'],
+    answer: "Jayson holds the **AWS Solutions Architect - Associate (SAA-C03)** certification and the **Certified Kubernetes Application Developer (CKAD)** certification. Those pair well with his SaaS support, cloud diagnostics, and technical escalation experience."
+  },
+  {
+    keywords: ['skill', 'technology', 'tech stack', 'tools', 'languages', 'programming', 'know'],
+    answer: "Jayson's technical toolkit includes **Python, SQL, Java, JavaScript, TypeScript, C++, Bash, React, Node.js, Flutter, Firebase, AWS, Docker, Kubernetes, Linux, Postman, Jira, Salesforce, PostgreSQL, MySQL, and MongoDB**. His strongest focus areas are API troubleshooting, SaaS incident resolution, root-cause analysis, cloud diagnostics, support automation, and escalation workflows."
+  },
+  {
+    keywords: ['project', 'built', 'portfolio', 'github', 'pulse', 'skyline', 'real estate', 'othello', 'lifebalance', 'banking'],
+    answer: "His selected projects include **Pulse**, a React news and sports dashboard with a serverless API proxy; **Skyline**, a weather dashboard with dynamic sky theming; a **Real Estate Prediction Model** using Python regression workflows; **AI Othello** in JavaFX; **LifeBalance+**, a Flutter wellness/productivity app; and a **C++ Banking System** simulation."
+  },
+  {
+    keywords: ['api', 'apis', 'integration', 'debug', 'troubleshoot', 'postman'],
+    answer: "Jayson has hands-on experience troubleshooting **API integrations and SaaS platform issues**. His support work includes investigating failed integrations, checking request/response behavior, using tools like Postman, reading logs and client context, and escalating clear findings to Product or Engineering."
+  },
+  {
+    keywords: ['available', 'availability', 'open', 'new role', 'hiring', 'hire', 'opportunity', 'remote', 'hybrid'],
+    answer: "Yes. Jayson is **open to Support Engineer roles**, especially opportunities where he can combine customer-facing technical support with API debugging, cloud diagnostics, incident resolution, and cross-functional engineering collaboration. He is based in Toronto and open to hybrid or remote roles."
+  },
+  {
+    keywords: ['education', 'school', 'degree', 'university', 'ontario tech', 'uoit'],
+    answer: "Jayson earned a **BSc (Honours) in Computer Science** from Ontario Tech University, class of 2024. His degree supports his developer-oriented approach to support engineering and technical troubleshooting."
+  },
+  {
+    keywords: ['contact', 'email', 'linkedin', 'github', 'reach', 'connect'],
+    answer: "You can reach Jayson at **jayson@jaysonsandhu.com**. He is also on LinkedIn at **linkedin.com/in/jaysonsandhu** and GitHub at **github.com/jayson-s**."
+  },
+  {
+    keywords: ['fit', 'team', 'why', 'good fit', 'strength', 'hire him'],
+    answer: "Jayson is a strong fit for teams that need someone who can **translate complex technical issues into clear action**. He brings customer-facing communication, SaaS troubleshooting, API debugging, cloud fundamentals, and a track record of partnering with Product and Engineering to resolve escalations."
+  },
+];
+
+const FALLBACK_ANSWER = "I can answer questions about Jayson's experience, skills, certifications, projects, availability, and contact info. For anything more specific, reach him directly at **jayson@jaysonsandhu.com**.";
 
 export function initAIChat() {
   const messagesEl  = document.getElementById('ai-chat-messages');
@@ -23,13 +66,8 @@ export function initAIChat() {
 
   if (!messagesEl || !inputEl || !sendBtn) return;
 
-  // Message history for context
-  let history = [];
+  addMessage('ai', "Hi! I'm Jayson's portfolio assistant. Ask me about his experience, skills, certifications, projects, availability, or contact info.");
 
-  // Add initial greeting
-  addMessage('ai', "Hi! I'm Jayson's AI assistant. Ask me anything about his experience, skills, or projects — I'm happy to help you get to know him better. ✨");
-
-  // Quick prompt chips
   if (quickWrap) {
     QUICK_PROMPTS.forEach(prompt => {
       const chip = document.createElement('button');
@@ -40,7 +78,6 @@ export function initAIChat() {
     });
   }
 
-  // Teaser button scrolls to AI section
   if (teaserBtn && chatSection) {
     teaserBtn.addEventListener('click', () => {
       chatSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -54,11 +91,11 @@ export function initAIChat() {
     });
   }
 
-  // Send handlers
   sendBtn.addEventListener('click', () => {
     const val = inputEl.value.trim();
     if (val) sendMessage(val);
   });
+
   inputEl.addEventListener('keydown', e => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -67,7 +104,7 @@ export function initAIChat() {
     }
   });
 
-  async function sendMessage(text) {
+  function sendMessage(text) {
     if (!text.trim()) return;
 
     addMessage('user', text);
@@ -75,55 +112,37 @@ export function initAIChat() {
     sendBtn.disabled = true;
 
     const typingId = showTyping();
+    const delay = Math.min(650, 220 + text.length * 8);
 
-    history.push({ role: 'user', content: text });
-
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history }),
-      });
-
-      const raw = await response.text();
-      let data = {};
-
-      try {
-        data = raw ? JSON.parse(raw) : {};
-      } catch (parseErr) {
-        console.error('AI Chat API returned non-JSON response:', {
-          status: response.status,
-          body: raw.slice(0, 300),
-          parseErr,
-        });
-      }
-
-      if (!response.ok) {
-        console.error('AI Chat API error:', {
-          status: response.status,
-          error: data.error || raw.slice(0, 300) || 'Unknown error',
-        });
-      }
-
-      const reply = response.ok && data.content?.[0]?.text
-        ? data.content[0].text
-        : "I'm having trouble connecting right now. Please try again or contact Jayson directly at jayson@jaysonsandhu.com.";
-
+    window.setTimeout(() => {
       removeTyping(typingId);
-      addMessage('ai', reply);
-      history.push({ role: 'assistant', content: reply });
+      addMessage('ai', getLocalReply(text));
+      sendBtn.disabled = false;
+      inputEl.focus();
+    }, delay);
+  }
 
-      // Keep history manageable (last 10 exchanges)
-      if (history.length > 20) history = history.slice(-20);
+  function getLocalReply(text) {
+    const question = normalizeText(text);
+    let bestMatch = null;
+    let bestScore = 0;
 
-    } catch (err) {
-      removeTyping(typingId);
-      addMessage('ai', "I'm having trouble connecting right now. Feel free to reach out to Jayson directly at jayson@jaysonsandhu.com.");
-      console.error('AI Chat error:', err);
-    }
+    ANSWERS.forEach(item => {
+      const score = item.keywords.reduce((total, keyword) => {
+        return question.includes(normalizeText(keyword)) ? total + keyword.split(' ').length : total;
+      }, 0);
 
-    sendBtn.disabled = false;
-    inputEl.focus();
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = item;
+      }
+    });
+
+    return bestScore > 0 ? bestMatch.answer : FALLBACK_ANSWER;
+  }
+
+  function normalizeText(text) {
+    return text.toLowerCase().replace(/[^a-z0-9+.\s-]/g, ' ').replace(/\s+/g, ' ').trim();
   }
 
   function addMessage(role, text) {
