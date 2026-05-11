@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Jayson Sandhu — Product Support Expert. BSc Computer Science, AWS Solutions Architect, CKAD. Toronto, ON."/>
+  <title>Jayson Sandhu — Product Support Expert</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Jost:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
+  <!-- Styles — modular -->
+  <link rel="stylesheet" href="css/tokens.css"/>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/nav.css"/>
+  <link rel="stylesheet" href="css/hero.css"/>
+  <link rel="stylesheet" href="css/sections.css"/>
+</head>
+<body>
+
+<!-- ── Cursor ── -->
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a class="nav-wordmark" href="#">Jayson <span>Sandhu</span></a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#ai-section">AI Assistant</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a class="nav-cta" href="mailto:jayson@jaysonsandhu.com">Get In Touch</a>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav drawer -->
+<nav class="nav-drawer" id="mobile-nav-drawer" aria-label="Mobile navigation">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#ai-section">AI Assistant</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+<div class="nav-drawer-overlay" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero" aria-label="Introduction">
+  <div class="hero-orb" aria-hidden="true"></div>
+
+  <!-- Left -->
+  <div class="hero-left">
+    <div class="hero-eyebrow reveal hero-entrance">Product Support Expert · Toronto, ON</div>
+
+    <h1 class="hero-h1 reveal hero-entrance reveal-d1">
+      <strong>Jayson</strong><em>Sandhu</em>
+    </h1>
+
+    <p class="hero-bio reveal hero-entrance reveal-d2">
+      Product Support Expert at Meltwater with 5+ years supporting complex technical systems in customer-facing environments. I specialize in SaaS support, API debugging, and cross-functional incident resolution — bridging engineering and customer success.
+    </p>
+
+    <div class="hero-actions reveal hero-entrance reveal-d3">
+      <a href="mailto:jayson@jaysonsandhu.com" class="btn-navy">Get in touch</a>
+      <a href="https://linkedin.com/in/jaysonsandhu" target="_blank" rel="noopener" class="btn-outline">LinkedIn ↗</a>
+      <a href="https://github.com/jayson-s" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
+    </div>
+
+    <div class="hero-status-row reveal hero-entrance reveal-d4">
+      <div class="hero-stat">
+        <span class="hero-stat-l">Experience</span>
+        <span class="hero-stat-v" data-count="5" data-suffix="+ yrs">5+ yrs</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-l">Certs</span>
+        <span class="hero-stat-v">AWS · CKAD</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-l">Education</span>
+        <span class="hero-stat-v">BSc CS · 2024</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right -->
+  <div class="hero-right reveal hero-entrance reveal-d2">
+    <div class="hero-photo-wrap">
+      <img
+        class="hero-photo"
+        src="https://www.jaysonsandhu.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fportfolio-pic.163ebf42.png&w=3840&q=75"
+        alt="Jayson Sandhu — Product Support Expert"
+        loading="eager"
+      />
+      <div class="avail-badge">
+        <span class="avail-dot" aria-hidden="true"></span>
+        Open to opportunities
+      </div>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-cell">
+        <div class="meta-l">Current Role</div>
+        <div class="meta-v">Product Support Expert<br>@ Meltwater</div>
+      </div>
+      <div class="hero-meta-cell">
+        <div class="meta-l">Education</div>
+        <div class="meta-v">BSc Computer Science<br>Ontario Tech, 2024</div>
+      </div>
+    </div>
+
+    <!-- AI teaser CTA -->
+    <div class="hero-ai-teaser ai-chat-bubble" id="ai-teaser-btn" role="button" tabindex="0" aria-label="Open AI assistant">
+      <div class="hero-ai-teaser-icon" aria-hidden="true">✦</div>
+      <div class="hero-ai-teaser-text">
+        <strong>Ask my AI assistant</strong>
+        "What's Jayson's experience with APIs?"
+      </div>
+      <div class="hero-ai-teaser-arrow" aria-hidden="true">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MARQUEE
+══════════════════════════════════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">SaaS & Application Support</span>
+    <span class="marquee-item">API Troubleshooting</span>
+    <span class="marquee-item">Incident Resolution</span>
+    <span class="marquee-item">Root Cause Analysis</span>
+    <span class="marquee-item">Python · SQL · Java</span>
+    <span class="marquee-item">AWS Solutions Architect</span>
+    <span class="marquee-item">Kubernetes Certified</span>
+    <span class="marquee-item">Meltwater · Apple · IBM</span>
+    <span class="marquee-item">SaaS & Application Support</span>
+    <span class="marquee-item">API Troubleshooting</span>
+    <span class="marquee-item">Incident Resolution</span>
+    <span class="marquee-item">Root Cause Analysis</span>
+    <span class="marquee-item">Python · SQL · Java</span>
+    <span class="marquee-item">AWS Solutions Architect</span>
+    <span class="marquee-item">Kubernetes Certified</span>
+    <span class="marquee-item">Meltwater · Apple · IBM</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<div class="section-wrap" id="about">
+  <div class="section-inner">
+    <div class="eyebrow reveal">
+      <span class="eyebrow-label">About</span>
+      <div class="eyebrow-rule"></div>
+    </div>
+    <div class="about-inner">
+      <div class="reveal">
+        <h2 class="about-h2">Turning complexity<br>into <em>clarity</em></h2>
+        <p class="about-body">I bring over five years of experience supporting complex technical systems in customer-facing environments. My work at Meltwater puts me at the intersection of global clients, Product, and Engineering — investigating data discrepancies, diagnosing API and integration failures, and driving resolutions that improve platform reliability at scale.<br><br>With a developer's foundation in Python, Java, C++, and JavaScript, I approach support engineering with precision and accountability. My long-term goal is to grow into senior technical roles where I can continue bridging engineering and customer success — because technology should empower, not frustrate.</p>
+        <div class="about-facts">
+          <div class="fact"><div class="fact-l">Based In</div><div class="fact-v">Toronto, ON</div></div>
+          <div class="fact"><div class="fact-l">Experience</div><div class="fact-v">5+ Years Technical</div></div>
+          <div class="fact"><div class="fact-l">Degree</div><div class="fact-v">BSc Computer Science</div></div>
+          <div class="fact"><div class="fact-l">Certs</div><div class="fact-v">AWS · CKAD</div></div>
+          <div class="fact"><div class="fact-l">Target Role</div><div class="fact-v">Support Engineer</div></div>
+          <div class="fact"><div class="fact-l">Interests</div><div class="fact-v">Cricket · Building things</div></div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="about-right">
+          <div class="about-quote">"Technology should empower, not frustrate. I enjoy being the bridge that makes that possible."</div>
+          <div class="about-quote-attr">— Jayson Sandhu</div>
+          <div class="stack-label">Current Focus Areas</div>
+          <div class="tags">
+            <span class="tg-dark">API Troubleshooting</span>
+            <span class="tg-dark">SaaS Incident Resolution</span>
+            <span class="tg-dark">Root Cause Analysis</span>
+            <span class="tg-dark">Support Automation</span>
+            <span class="tg-dark">Cloud Diagnostics</span>
+            <span class="tg-dark">Escalation Workflows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SKILLS
+══════════════════════════════════════════ -->
+<div class="section-wrap" id="skills">
+  <div class="section-inner">
+    <div class="eyebrow reveal">
+      <span class="eyebrow-label">Skills</span>
+      <div class="eyebrow-rule"></div>
+      <span class="eyebrow-count">06 categories</span>
+    </div>
+    <div class="skills-grid reveal reveal-d1">
+      <div class="skill-block">
+        <div class="skill-cat">Languages & Scripting</div>
+        <div class="skill-title">Core Languages</div>
+        <div class="tags">
+          <span class="tg">Python</span><span class="tg">SQL</span><span class="tg">Java</span>
+          <span class="tg">JavaScript</span><span class="tg">TypeScript</span>
+          <span class="tg">C++</span><span class="tg">HTML / CSS</span><span class="tg">Bash</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Support & Diagnostics</div>
+        <div class="skill-title">Core Support</div>
+        <div class="tags">
+          <span class="tg">SaaS Support</span><span class="tg">API Troubleshooting</span>
+          <span class="tg">Incident Analysis</span><span class="tg">Root-Cause Analysis</span>
+          <span class="tg">Jira Service Management</span><span class="tg">Postman</span>
+          <span class="tg">Log Analysis</span><span class="tg">SLA Management</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Cloud & Infrastructure</div>
+        <div class="skill-title">Infrastructure</div>
+        <div class="tags">
+          <span class="tg">AWS EC2</span><span class="tg">S3</span><span class="tg">Lambda</span>
+          <span class="tg">DynamoDB</span><span class="tg">Docker</span>
+          <span class="tg">Kubernetes</span><span class="tg">Linux</span>
+          <span class="tg">GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Frameworks & Dev</div>
+        <div class="skill-title">Dev Stack</div>
+        <div class="tags">
+          <span class="tg">Next.js</span><span class="tg">React</span>
+          <span class="tg">Node.js</span><span class="tg">Flutter</span>
+          <span class="tg">Firebase</span><span class="tg">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Tools & Data</div>
+        <div class="skill-title">Tooling</div>
+        <div class="tags">
+          <span class="tg">Jira</span><span class="tg">Confluence</span>
+          <span class="tg">Salesforce</span><span class="tg">PostgreSQL</span>
+          <span class="tg">MySQL</span><span class="tg">MongoDB</span>
+          <span class="tg">GitHub</span><span class="tg">Postman</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Competencies</div>
+        <div class="skill-title">Core Skills</div>
+        <div class="tags">
+          <span class="tg">Cross-functional Collaboration</span>
+          <span class="tg">Technical Communication</span>
+          <span class="tg">Critical Thinking</span>
+          <span class="tg">Leadership</span>
+          <span class="tg">Escalation Management</span>
+          <span class="tg">Process Documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     AI ASSISTANT SECTION
+══════════════════════════════════════════ -->
+<div class="ai-section section-wrap" id="ai-section">
+  <div class="ai-section-inner">
+    <div class="eyebrow reveal" style="margin-bottom: 16px;">
+      <span class="ai-eyebrow-label">AI Assistant</span>
+      <div class="ai-eyebrow-rule"></div>
+      <span class="eyebrow-count" style="color: rgba(255,255,255,0.2);">Powered by Claude</span>
+    </div>
+
+    <h2 class="ai-section-h2 reveal">Ask me anything<br>about <em>Jayson.</em></h2>
+    <p class="ai-section-sub reveal reveal-d1">
+      This portfolio features a live AI assistant trained on Jayson's experience. Ask about his work, skills, projects, or whether he'd be a good fit for your team.
+    </p>
+
+    <!-- Main layout: chat + tools panel -->
+    <div class="ai-layout reveal reveal-d2">
+
+      <!-- Chat window -->
+      <div class="ai-chat-wrap">
+        <div class="ai-chat-header">
+          <div class="ai-chat-header-dot" aria-hidden="true"></div>
+          <span class="ai-chat-header-title">Portfolio Assistant</span>
+          <span class="ai-chat-header-status">Online</span>
+        </div>
+
+        <div class="ai-chat-messages" id="ai-chat-messages" role="log" aria-live="polite" aria-label="Chat messages">
+          <!-- Messages injected by JS -->
+        </div>
+
+        <!-- Quick chips -->
+        <div class="ai-quick-chips" id="ai-quick-chips" aria-label="Quick questions">
+          <!-- Chips injected by JS -->
+        </div>
+
+        <!-- Input -->
+        <div class="ai-chat-input-wrap">
+          <label for="ai-chat-input" class="visually-hidden">Ask a question</label>
+          <input
+            id="ai-chat-input"
+            class="ai-chat-input"
+            type="text"
+            placeholder="Ask about Jayson's experience…"
+            autocomplete="off"
+            maxlength="300"
+          />
+          <button id="ai-chat-send" class="ai-chat-send" aria-label="Send message" title="Send">→</button>
+        </div>
+      </div>
+
+      <!-- Tools/capabilities panel -->
+      <div class="ai-tools-panel">
+        <div class="ai-tools-title">What I can tell you</div>
+
+        <div class="ai-tool-item">
+          <div class="ai-tool-icon">💼</div>
+          <div>
+            <div class="ai-tool-name">Work Experience</div>
+            <div class="ai-tool-desc">Meltwater, Apple, IBM, and more — ask about any role.</div>
+          </div>
+        </div>
+
+        <div class="ai-tool-item">
+          <div class="ai-tool-icon">🛠️</div>
+          <div>
+            <div class="ai-tool-name">Technical Skills</div>
+            <div class="ai-tool-desc">Languages, cloud, support tools, certifications.</div>
+          </div>
+        </div>
+
+        <div class="ai-tool-item">
+          <div class="ai-tool-icon">🚀</div>
+          <div>
+            <div class="ai-tool-name">Projects</div>
+            <div class="ai-tool-desc">Pulse, Skyline, ML models, games, mobile apps.</div>
+          </div>
+        </div>
+
+        <div class="ai-tool-item">
+          <div class="ai-tool-icon">🎯</div>
+          <div>
+            <div class="ai-tool-name">Career Goals</div>
+            <div class="ai-tool-desc">Open to Support Engineer roles, hybrid or remote.</div>
+          </div>
+        </div>
+
+        <div class="ai-tool-item">
+          <div class="ai-tool-icon">📬</div>
+          <div>
+            <div class="ai-tool-name">Contact Info</div>
+            <div class="ai-tool-desc">Get details to reach Jayson directly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════════ -->
+<div class="section-wrap" id="projects">
+  <div class="section-inner">
+    <div class="eyebrow reveal">
+      <span class="eyebrow-label">Projects</span>
+      <div class="eyebrow-rule"></div>
+      <span class="eyebrow-count">06 selected</span>
+    </div>
+    <div class="proj-grid reveal reveal-d1">
+
+      <a href="https://pulse.jaysonsandhu.com" target="_blank" rel="noopener" class="proj-card">
+        <div class="proj-bar proj-bar-1"></div>
+        <div class="proj-body">
+          <div class="proj-idx">01 — Featured · Live</div>
+          <div class="proj-title-text"><em>Pulse</em></div>
+          <p class="proj-desc-text">Editorial news and sports dashboard with secure API architecture. GNews API is proxied through Vercel serverless functions to protect API keys — a pattern directly applicable to real-world support tooling and backend integration work.</p>
+          <div class="proj-tech">
+            <span class="proj-badge">React</span>
+            <span class="proj-badge">Serverless Functions</span>
+            <span class="proj-badge">GNews API</span>
+            <span class="proj-badge">Vercel</span>
+            <span class="proj-badge">API Security</span>
+          </div>
+          <div class="proj-link-label">View Live</div>
+        </div>
+      </a>
+
+      <a href="https://skyline.jaysonsandhu.com" target="_blank" rel="noopener" class="proj-card">
+        <div class="proj-bar proj-bar-2"></div>
+        <div class="proj-body">
+          <div class="proj-idx">02 — Live</div>
+          <div class="proj-title-text">Skyline</div>
+          <p class="proj-desc-text">Weather dashboard with dynamic sky theming that shifts in real time based on conditions via the Open-Meteo API. Deployed to Vercel with a custom subdomain on jaysonsandhu.com.</p>
+          <div class="proj-tech">
+            <span class="proj-badge">React</span>
+            <span class="proj-badge">Open-Meteo API</span>
+            <span class="proj-badge">Vercel</span>
+          </div>
+          <div class="proj-link-label">View Live</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/jayson-s/RealEstatePrediction" target="_blank" rel="noopener" class="proj-card">
+        <div class="proj-bar proj-bar-3"></div>
+        <div class="proj-body">
+          <div class="proj-idx">03</div>
+          <div class="proj-title-text">Real Estate<br><em>Prediction Model</em></div>
+          <p class="proj-desc-text">Python house-price prediction pipeline that analyzes housing data, performs EDA, feature engineering, and preprocessing, then trains regression models to estimate property prices with generated visualizations saved to results.</p>
+          <div class="proj-tech">
+            <span class="proj-badge">Python</span>
+            <span class="proj-badge">Regression</span>
+            <span class="proj-badge">Pandas</span>
+            <span class="proj-badge">Scikit-Learn</span>
+            <span class="proj-badge">EDA</span>
+          </div>
+          <div class="proj-link-label">View on GitHub</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/jayson-s/Othello" target="_blank" rel="noopener" class="proj-card">
+        <div class="proj-bar proj-bar-4"></div>
+        <div class="proj-body">
+          <div class="proj-idx">04</div>
+          <div class="proj-title-text">AI Othello</div>
+          <p class="proj-desc-text">JavaFX Othello game with a full Minimax algorithm AI opponent using alpha-beta pruning. Deep game-tree search for strategic gameplay — a deep dive into classical AI.</p>
+          <div class="proj-tech">
+            <span class="proj-badge">Java</span>
+            <span class="proj-badge">JavaFX</span>
+            <span class="proj-badge">Minimax</span>
+            <span class="proj-badge">Alpha-Beta</span>
+          </div>
+          <div class="proj-link-label">View on GitHub</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/jayson-s/LifeBalancePlus" target="_blank" rel="noopener" class="proj-card">
+        <div class="proj-bar proj-bar-5"></div>
+        <div class="proj-body">
+          <div class="proj-idx">05</div>
+          <div class="proj-title-text">LifeBalance+</div>
+          <p class="proj-desc-text">Cross-platform wellness app shipped to both iOS and Android. Task management, habit tracking, and fitness analytics — built with Flutter and Firebase for real-time sync.</p>
+          <div class="proj-tech">
+            <span class="proj-badge">Flutter</span>
+            <span class="proj-badge">Dart</span>
+            <span class="proj-badge">Firebase</span>
+            <span class="proj-badge">iOS</span>
+            <span class="proj-badge">Android</span>
+          </div>
+          <div class="proj-link-label">View on GitHub</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/jayson-s/BankingSystem" target="_blank" rel="noopener" class="proj-card">
+        <div class="proj-bar proj-bar-6"></div>
+        <div class="proj-body">
+          <div class="proj-idx">06</div>
+          <div class="proj-title-text">Banking System</div>
+          <p class="proj-desc-text">Scalable C++ banking simulation focused on data integrity, secure account management, and deep OOP architecture. Demonstrates systems-level design thinking.</p>
+          <div class="proj-tech">
+            <span class="proj-badge">C++</span>
+            <span class="proj-badge">OOP</span>
+            <span class="proj-badge">Data Integrity</span>
+          </div>
+          <div class="proj-link-label">View on GitHub</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════════════ -->
+<div class="section-wrap" id="experience">
+  <div class="section-inner">
+    <div class="eyebrow reveal">
+      <span class="eyebrow-label">Experience</span>
+      <div class="eyebrow-rule"></div>
+      <span class="eyebrow-count">04 roles</span>
+    </div>
+
+    <div class="exp-list reveal reveal-d1">
+
+      <!-- Meltwater -->
+      <div class="exp-row" data-exp>
+        <div class="exp-header" aria-expanded="false">
+          <div class="exp-period">Aug 2025<br>Present</div>
+          <div class="exp-header-main">
+            <div class="exp-role-text">Product Support Expert — L1</div>
+            <div class="exp-co-text">Meltwater · Toronto, ON</div>
+          </div>
+          <div class="exp-header-right">
+            <span class="exp-pill">Current</span>
+            <div class="exp-toggle" aria-hidden="true">+</div>
+          </div>
+        </div>
+        <div class="exp-detail" role="region">
+          <div class="exp-detail-inner">
+            <div class="exp-bullets">
+              <div class="exp-bullet">Established Meltwater's Canadian Product Support function as the foundational hire, defining workflows, escalation models, and operational standards for scale.</div>
+              <div class="exp-bullet">Troubleshoot complex B2B SaaS issues including analytics, API integrations, and data inconsistencies using logs, system behaviour, and client context to identify root causes.</div>
+              <div class="exp-bullet">Own a high-volume technical case queue end-to-end, consistently meeting SLA targets while maintaining strong client satisfaction scores.</div>
+              <div class="exp-bullet">Partner cross-functionally with Product and Engineering to triage escalations, surface systemic issues, and drive platform reliability improvements.</div>
+              <div class="exp-bullet">Selected by leadership to lead API and integration support initiatives — specialising in Meta integrations and collaborating with senior engineers on complex backend systems.</div>
+            </div>
+            <div class="exp-chips">
+              <span class="exp-chip">API Debugging</span>
+              <span class="exp-chip">Incident Analysis</span>
+              <span class="exp-chip">SaaS Support</span>
+              <span class="exp-chip">Root Cause</span>
+              <span class="exp-chip">Jira</span>
+              <span class="exp-chip">Cross-functional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apple -->
+      <div class="exp-row" data-exp>
+        <div class="exp-header" aria-expanded="false">
+          <div class="exp-period">Aug 2021<br>Feb 2026</div>
+          <div class="exp-header-main">
+            <div class="exp-role-text">Senior Technical Expert</div>
+            <div class="exp-co-text">Apple · Markham, ON</div>
+          </div>
+          <div class="exp-header-right">
+            <div class="exp-toggle" aria-hidden="true">+</div>
+          </div>
+        </div>
+        <div class="exp-detail" role="region">
+          <div class="exp-detail-inner">
+            <div class="exp-bullets">
+              <div class="exp-bullet">Delivered expert-level technical support across Apple's hardware, software, and cloud ecosystem — consistently achieving 90%+ customer satisfaction.</div>
+              <div class="exp-bullet">Resolved 100+ complex technical issues weekly including device failures, account errors, and system-level bugs, improving resolution efficiency and reducing repeat visits.</div>
+              <div class="exp-bullet">Identified and documented 50+ recurring issues, providing structured feedback to engineering and product teams that contributed to workflow improvements.</div>
+              <div class="exp-bullet">Mentored Technical Specialists, strengthening team troubleshooting capabilities and elevating overall support quality.</div>
+              <div class="exp-bullet">Consistently ranked in the top 10% of support performers across KPIs including resolution time, accuracy, and customer satisfaction.</div>
+            </div>
+            <div class="exp-chips">
+              <span class="exp-chip">Hardware Diagnostics</span>
+              <span class="exp-chip">macOS / iOS</span>
+              <span class="exp-chip">Escalation Handling</span>
+              <span class="exp-chip">Mentoring</span>
+              <span class="exp-chip">Top 10% Performer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IBM -->
+      <div class="exp-row" data-exp>
+        <div class="exp-header" aria-expanded="false">
+          <div class="exp-period">May 2019<br>Dec 2019</div>
+          <div class="exp-header-main">
+            <div class="exp-role-text">Software Developer</div>
+            <div class="exp-co-text">IBM Developer Program · Markham, ON</div>
+          </div>
+          <div class="exp-header-right">
+            <div class="exp-toggle" aria-hidden="true">+</div>
+          </div>
+        </div>
+        <div class="exp-detail" role="region">
+          <div class="exp-detail-inner">
+            <div class="exp-bullets">
+              <div class="exp-bullet">Selected for IBM's competitive Developer Program focused on AI and drone autonomy, collaborating with global mentors and contributors.</div>
+              <div class="exp-bullet">Designed and programmed Python-based flight automation for a DJI Tello drone, enabling real-time object detection and autonomous indoor navigation.</div>
+              <div class="exp-bullet">Built a lightweight ML pipeline to improve object classification accuracy and deployed microservices on IBM Cloud to manage telemetry data.</div>
+            </div>
+            <div class="exp-chips">
+              <span class="exp-chip">Python</span>
+              <span class="exp-chip">IBM Cloud</span>
+              <span class="exp-chip">ML Pipeline</span>
+              <span class="exp-chip">Drone Autonomy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shoppers -->
+      <div class="exp-row" data-exp>
+        <div class="exp-header" aria-expanded="false">
+          <div class="exp-period">Jul 2017<br>Aug 2022</div>
+          <div class="exp-header-main">
+            <div class="exp-role-text">Assistant Store Manager</div>
+            <div class="exp-co-text">Shoppers Drug Mart · Toronto, ON</div>
+          </div>
+          <div class="exp-header-right">
+            <div class="exp-toggle" aria-hidden="true">+</div>
+          </div>
+        </div>
+        <div class="exp-detail" role="region">
+          <div class="exp-detail-inner">
+            <div class="exp-bullets">
+              <div class="exp-bullet">Led retail operations for a high-traffic location — overseeing team scheduling, sales planning, and execution to consistently meet quarterly revenue targets.</div>
+              <div class="exp-bullet">Mentored and developed junior staff, achieving a 98% retention rate and measurable improvements in sales and service quality.</div>
+              <div class="exp-bullet">Implemented merchandising and promotional campaigns contributing to a 10% increase in quarterly revenue.</div>
+              <div class="exp-bullet">Recognised as Employee of the Quarter (2021) for outstanding leadership and exceeding sales and customer experience metrics.</div>
+            </div>
+            <div class="exp-chips">
+              <span class="exp-chip">Leadership</span>
+              <span class="exp-chip">Operations</span>
+              <span class="exp-chip">Team Development</span>
+              <span class="exp-chip">Employee of Quarter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Certifications -->
+    <div class="eyebrow reveal" style="margin-top: 72px;">
+      <span class="eyebrow-label">Certifications</span>
+      <div class="eyebrow-rule"></div>
+    </div>
+    <div class="cert-grid reveal reveal-d1">
+      <div class="cert-card">
+        <div class="cert-issuer">Pearson / Linux Foundation · Jan 2026</div>
+        <div class="cert-name">Certified Kubernetes Application Developer</div>
+        <div class="cert-code">CKAD</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Amazon Web Services · Feb 2025</div>
+        <div class="cert-name">AWS Solutions Architect – Associate</div>
+        <div class="cert-code">SAA-C03</div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="eyebrow reveal" style="margin-top: 72px;">
+      <span class="eyebrow-label">Education</span>
+      <div class="eyebrow-rule"></div>
+    </div>
+    <div class="exp-list reveal reveal-d1">
+      <div class="exp-row">
+        <div class="exp-header" style="cursor: default;">
+          <div class="exp-period">Class of 2024</div>
+          <div class="exp-header-main">
+            <div class="exp-role-text">BSc (Honours) — Computer Science</div>
+            <div class="exp-co-text">University of Ontario Institute of Technology</div>
+          </div>
+          <div class="exp-header-right"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<div id="contact">
+  <div class="contact-wrap">
+    <div class="contact-grid reveal">
+      <div class="contact-left">
+        <h2 class="contact-h2">Let's work<br><em>together.</em></h2>
+        <p class="contact-sub">Open to Support Engineer roles. Based in Toronto — open to hybrid or remote opportunities.</p>
+      </div>
+      <div class="contact-right">
+        <a href="mailto:jayson@jaysonsandhu.com" class="contact-row">
+          <div>
+            <div class="contact-row-label">Email</div>
+            <div class="contact-row-value">jayson@jaysonsandhu.com</div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://linkedin.com/in/jaysonsandhu" target="_blank" rel="noopener" class="contact-row">
+          <div>
+            <div class="contact-row-label">LinkedIn</div>
+            <div class="contact-row-value">linkedin.com/in/jaysonsandhu</div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://github.com/jayson-s" target="_blank" rel="noopener" class="contact-row">
+          <div>
+            <div class="contact-row-label">GitHub</div>
+            <div class="contact-row-value">github.com/jayson-s</div>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <span class="footer-text">© 2026 Jayson Sandhu</span>
+  <span class="footer-text">Toronto, ON · Product Support Expert</span>
+</footer>
+
+<!-- JS — ES Modules -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>

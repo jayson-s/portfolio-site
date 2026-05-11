@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════════════════════
+   TOKENS.CSS — Design System Tokens
+   Jayson Sandhu Portfolio
+═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Palette ── */
+  --paper: #f8f7f4;
+  --warm: #f1ede6;
+  --white: #ffffff;
+  --ink: #181818;
+  --ink-80: rgba(24, 24, 24, 0.80);
+  --ink-60: rgba(24, 24, 24, 0.60);
+  --ink-40: rgba(24, 24, 24, 0.40);
+  --ink-25: rgba(24, 24, 24, 0.25);
+  --ink-10: rgba(24, 24, 24, 0.08);
+  --rule: rgba(24, 24, 24, 0.09);
+  --rule-strong: rgba(24, 24, 24, 0.16);
+
+  --navy: #1b2d50;
+  --navy-deep: #111d35;
+  --navy-mid: #243665;
+  --navy-light: #2e4a7a;
+  --accent: #2a5f90;
+  --accent-dim: rgba(42, 95, 144, 0.10);
+  --accent-line: rgba(42, 95, 144, 0.28);
+  --accent-glow: rgba(42, 95, 144, 0.15);
+
+  --green: #4a9e6a;
+  --green-glow: rgba(74, 158, 106, 0.20);
+
+  /* ── AI Gradient palette ── */
+  --ai-1: #6366f1;
+  --ai-2: #8b5cf6;
+  --ai-3: #06b6d4;
+  --ai-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  --ai-gradient-soft: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(139,92,246,0.08) 50%, rgba(6,182,212,0.12) 100%);
+
+  /* ── Typography ── */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Spacing ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ── Section padding ── */
+  --section-x: 60px;
+  --section-y: 96px;
+
+  /* ── Motion ── */
+  --ease-out: cubic-bezier(0.22, 0.68, 0, 1.1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 0.18s;
+  --duration-base: 0.28s;
+  --duration-slow: 0.5s;
+  --duration-enter: 0.7s;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 2px 8px rgba(27, 45, 80, 0.06);
+  --shadow-md: 0 8px 24px rgba(27, 45, 80, 0.10);
+  --shadow-lg: 0 16px 48px rgba(27, 45, 80, 0.14);
+  --shadow-xl: 0 32px 80px rgba(27, 45, 80, 0.18);
+
+  /* ── Border radius ── */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* ── Z-index ── */
+  --z-base: 0;
+  --z-above: 10;
+  --z-nav: 200;
+  --z-overlay: 300;
+  --z-cursor: 9999;
+}
+
+/* ── Responsive token overrides ── */
+@media (max-width: 1024px) {
+  :root {
+    --section-x: 32px;
+    --section-y: 72px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --section-x: 20px;
+    --section-y: 60px;
+  }
+}

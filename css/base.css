@@ -1,0 +1,253 @@
+/* ═══════════════════════════════════════════════════════════
+   BASE.CSS — Reset & Global Base Styles
+═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body.custom-cursor {
+  cursor: none;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+body.custom-cursor button {
+  cursor: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--accent-dim);
+  color: var(--navy);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border-radius: var(--radius-full);
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── Utility Classes ── */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.section-wrap {
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-y) var(--section-x);
+}
+
+/* ── Reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-enter) ease,
+    transform var(--duration-enter) var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-d1 { transition-delay: 0.10s; }
+.reveal-d2 { transition-delay: 0.20s; }
+.reveal-d3 { transition-delay: 0.30s; }
+.reveal-d4 { transition-delay: 0.40s; }
+
+/* ── Eyebrow section header ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 52px;
+}
+.eyebrow-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.eyebrow-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.eyebrow-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--ink-25);
+  white-space: nowrap;
+}
+
+/* ── Tags / Chips ── */
+.tg {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--ink-60);
+  background: var(--warm);
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast);
+  cursor: default;
+}
+.tg:hover {
+  color: var(--ink);
+  background: rgba(27, 45, 80, 0.07);
+  border-color: rgba(27, 45, 80, 0.18);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ── Buttons ── */
+.btn-navy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--navy);
+  padding: 13px 28px;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    background var(--duration-base),
+    transform var(--duration-base);
+}
+.btn-navy:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 12px 22px;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    border-color var(--duration-base),
+    background var(--duration-base);
+}
+.btn-outline:hover {
+  border-color: var(--ink);
+  background: var(--ink-10);
+}
+
+.btn-ai {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--ai-gradient);
+  background-size: 200% 200%;
+  padding: 13px 28px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-position var(--duration-slow), transform var(--duration-base);
+  animation: gradShift 4s ease-in-out infinite alternate;
+}
+.btn-ai:hover {
+  transform: translateY(-2px);
+}
+@keyframes gradShift {
+  0%  { background-position: 0% 50%; }
+  100%{ background-position: 100% 50%; }
+}
+
+@media (pointer: coarse) {
+  body.custom-cursor,
+  body.custom-cursor button {
+    cursor: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
