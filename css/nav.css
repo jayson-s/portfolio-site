@@ -57,6 +57,25 @@ body:has(.ai-chat-bubble:hover) #cursor-ring {
   opacity: 0.4;
 }
 
+body.cursor-light #cursor-dot {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+body.cursor-light #cursor-ring {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.cursor-light:has(a:hover) #cursor-dot,
+body.cursor-light:has(button:hover) #cursor-dot {
+  background: var(--ai-3);
+}
+
+body.cursor-light:has(a:hover) #cursor-ring,
+body.cursor-light:has(button:hover) #cursor-ring {
+  border-color: rgba(255, 255, 255, 0.78);
+}
+
 @media (pointer: coarse) {
   #cursor-dot,
   #cursor-ring {

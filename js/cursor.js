@@ -12,11 +12,24 @@ export function initCursor() {
   document.body.classList.add('custom-cursor');
 
   let mx = 0, my = 0, rx = 0, ry = 0;
+  let activeDarkSection = null;
+  const lightCursorSelector = '.ai-section';
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
     my = e.clientY;
     dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+
+    const section = document.elementFromPoint(mx, my)?.closest(lightCursorSelector);
+    if (section !== activeDarkSection) {
+      activeDarkSection = section;
+      document.body.classList.toggle('cursor-light', Boolean(activeDarkSection));
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    activeDarkSection = null;
+    document.body.classList.remove('cursor-light');
   });
 
   (function loop() {
