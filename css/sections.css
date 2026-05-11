@@ -149,7 +149,7 @@
   overflow: hidden;
 }
 .ai-section-inner {
-  max-width: 1200px;
+  max-width: var(--content-max);
   margin: 0 auto;
   padding: var(--section-y) var(--section-x);
   position: relative;
@@ -847,7 +847,7 @@ body.custom-cursor .proj-card { cursor: none; }
    CONTACT
 ══════════════════ */
 .contact-wrap {
-  max-width: 1200px;
+  max-width: var(--content-max);
   margin: 0 auto;
   padding: var(--section-y) var(--section-x);
 }

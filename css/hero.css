@@ -5,8 +5,10 @@
 #hero {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 440px;
+  grid-template-columns: minmax(0, 1fr) 440px;
   align-items: center;
+  max-width: var(--content-max);
+  margin: 0 auto;
   padding: 130px var(--section-x) 80px;
   gap: 80px;
   position: relative;
@@ -18,7 +20,10 @@
 #hero::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
   pointer-events: none;
   background-image:
     linear-gradient(rgba(27, 45, 80, 0.03) 1px, transparent 1px),
@@ -307,6 +312,23 @@ h1.hero-h1 strong {
     max-width: 480px;
   }
 }
+
+@media (min-width: 1600px) {
+  #hero {
+    grid-template-columns: minmax(0, 1fr) 500px;
+    gap: 96px;
+  }
+
+  h1.hero-h1 {
+    font-size: clamp(72px, 5vw, 116px);
+  }
+
+  .hero-bio {
+    max-width: 520px;
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 640px) {
   #hero {
     padding-top: 110px;
