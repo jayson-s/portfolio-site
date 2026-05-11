@@ -5,12 +5,14 @@
 /* ── Custom Cursor ── */
 #cursor-dot {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 7px; height: 7px;
   background: var(--navy);
   border-radius: 50%;
   pointer-events: none;
   z-index: var(--z-cursor);
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
   transition:
     width 0.2s, height 0.2s,
     background 0.2s;
@@ -19,12 +21,14 @@
 
 #cursor-ring {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 32px; height: 32px;
   border: 1px solid rgba(27, 45, 80, 0.25);
   border-radius: 50%;
   pointer-events: none;
   z-index: calc(var(--z-cursor) - 1);
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
   transition:
     width 0.3s, height 0.3s,
     border-color 0.3s;

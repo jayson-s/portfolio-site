@@ -16,15 +16,13 @@ export function initCursor() {
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
     my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top  = my + 'px';
+    dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
   });
 
   (function loop() {
     rx += (mx - rx) * 0.12;
     ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
     requestAnimationFrame(loop);
   })();
 }

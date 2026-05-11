@@ -24,8 +24,9 @@ body {
   overflow-x: hidden;
 }
 
-body.custom-cursor {
-  cursor: none;
+body.custom-cursor,
+body.custom-cursor * {
+  cursor: none !important;
 }
 
 img, video {
@@ -43,10 +44,6 @@ button {
   cursor: pointer;
   border: none;
   background: none;
-}
-
-body.custom-cursor button {
-  cursor: none;
 }
 
 ul, ol {
@@ -232,7 +229,7 @@ ul, ol {
 
 @media (pointer: coarse) {
   body.custom-cursor,
-  body.custom-cursor button {
+  body.custom-cursor * {
     cursor: auto;
   }
 }
